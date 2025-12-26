@@ -1,0 +1,50 @@
+app:
+  name: "ML Research RAG Assistant"
+  seed: 42
+
+paths:
+  papers_dir: "data/papers"
+  chroma_dir: "data/chroma"
+  logs_dir: "logs"
+
+ingestion:
+  allowed_ext: [".pdf"]
+  heading:
+    # Heuristics for section heading detection.
+    # Deterministic rules: short lines, no trailing period, high "title-like" score.
+    max_len: 80
+    min_len: 3
+    max_words: 12
+    require_no_period: true
+
+chunking:
+  # Deterministic chunking by approximate tokens using tiktoken.
+  chunk_tokens: 350
+  chunk_overlap_tokens: 60
+  min_chunk_tokens: 120
+
+retrieval:
+  k: 6
+  use_mmr: true
+  mmr:
+    fetch_k: 24
+    lambda_mult: 0.65
+  # Abstain if retrieval seems weak (similarity score threshold).
+  # Note: Chroma returns distances; we convert to similarity proxy in code deterministically.
+  min_similarity: 0.20
+
+models:
+  embeddings:
+    provider: "openai"
+    model: "text-embedding-3-small"
+  llm:
+    provider: "openai"
+    model: "gpt-4o-mini"
+    temperature: 0.0
+
+prompts:
+  max_context_chunks: 10
+  citation_format: "[{chunk_id} p.{page}]"
+
+evaluation:
+  k_values: [1, 3, 5, 10]

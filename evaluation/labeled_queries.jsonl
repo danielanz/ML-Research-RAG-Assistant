@@ -1,0 +1,11 @@
+{"query": "What is the main contribution of the Adam optimizer paper?", "relevant_chunks": [], "expected_mode": "qa", "notes": "Fill in relevant_chunks after indexing your PDFs with actual chunk_ids"}
+{"query": "How does Adam compute the adaptive learning rate?", "relevant_chunks": [], "expected_mode": "qa", "notes": "Expect chunks from algorithm/method sections"}
+{"query": "What is the bias correction in Adam and why is it needed?", "relevant_chunks": [], "expected_mode": "qa", "notes": "Should retrieve theoretical justification sections"}
+{"query": "Compare Adam vs SGD with momentum", "relevant_chunks": [], "expected_mode": "compare", "notes": "Router should detect 'compare' mode"}
+{"query": "Summarize the method and architecture of Adam", "relevant_chunks": [], "expected_mode": "method_card", "notes": "Should trigger method_card mode"}
+{"query": "Is it true that Adam uses exponential moving averages?", "relevant_chunks": [], "expected_mode": "claim_verify", "notes": "Should trigger claim_verify mode"}
+{"query": "What hyperparameters does Adam recommend?", "relevant_chunks": [], "expected_mode": "qa", "notes": "Should find default values section"}
+{"query": "What are the limitations of Adam mentioned in the paper?", "relevant_chunks": [], "expected_mode": "qa", "notes": "May require abstention if not in context"}
+{"query": "Does Adam converge for non-convex problems?", "relevant_chunks": [], "expected_mode": "claim_verify", "notes": "Verify claim against paper evidence"}
+{"query": "What experiments were run to validate Adam?", "relevant_chunks": [], "expected_mode": "qa", "notes": "Should retrieve experiment/results sections"}
+
